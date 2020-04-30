@@ -2,16 +2,22 @@ import React from "react";
 import "./App.css";
 import PicOfDay from "./Components/PictureOfDay";
 import Navigation from "./Components/Navigation";
+import styled from "styled-components"
 
+const Title = styled.h2 `
+  font-size: 5rem
+`
 
 function App() {
   return (
     <div className="App">
       <Navigation />
-      <div className="title">
-        <h1>Astronomy Picture of the Day</h1>
-      </div>
-      <PicOfDay />
+      <div class="container">
+        <div className="title">
+          <Title>Astronomy Picture of the Day</Title>
+        </div>
+        <PicOfDay />
+        </div>
     </div>
   );
 }
