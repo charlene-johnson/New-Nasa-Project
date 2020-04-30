@@ -19,16 +19,12 @@ export default function PictureOfDay() {
 
         return(
             <div className="info">
-                    
-                       <PictureInfo 
-                       date={picture.date}
-                       title={picture.title}
-                       image={picture.url}
-                       explanation={picture.explanation}
-                       />  
-                    
-
-               
+                <PictureInfo 
+                    date={picture.date}
+                    title={picture.title}
+                    image={picture.url}
+                    explanation={picture.explanation}
+                    />  
             </div>
-        )
-}
+     );
+};
