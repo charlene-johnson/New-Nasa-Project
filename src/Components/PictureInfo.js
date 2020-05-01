@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components"
 import moment from "moment"
-import {Modal, ModalBody, Card} from "reactstrap"
+import {Modal, ModalBody} from "reactstrap"
 
 
 const TitleDate = styled.div `
