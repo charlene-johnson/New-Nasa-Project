@@ -5,7 +5,8 @@ import Navigation from "./Components/Navigation";
 import styled from "styled-components"
 
 const Title = styled.h2 `
-  font-size: 5rem
+  font-size: 5rem;
+  font-family: 'Orbitron', sans-serif;
 `
 
 function App() {
