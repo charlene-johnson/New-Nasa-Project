@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components"
 import moment from "moment"
+import {Modal, ModalBody, Card} from "reactstrap"
+
 
 const TitleDate = styled.div `
     display: flex;
@@ -16,8 +18,34 @@ const Pictures = styled.img `
     background: linear-gradient(to right, lightblue, pink);
    
 `
+const Button = styled.button `
+    padding: 1%;
+    margin: 2% 0;
+    background: linear-gradient(to left, purple, pink);
+    border: 2px solid pink;
+    font-size: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
 
+    &:hover {
+        background: linear-gradient(to right, lightblue, pink);
+    }
+`
+const Paragraph = styled.p `
+    padding: 20px;
+    border: 1px solid purple;
+    font-size: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+    background: white; 
+`
+
+const Footer = styled.footer `
+    font-size: 1.3rem;
+    font-family: 'Orbitron', sans-serif;
+`
 const PictureInfo = props => {
+
+const [modal, setModal] = useState(false); 
+const toggle = () => setModal(!modal);
 
 const newDate = moment(props.date).format('dddd, MMMM Do YYYY')    
     return (
@@ -28,10 +56,21 @@ const newDate = moment(props.date).format('dddd, MMMM Do YYYY')
         </TitleDate>
         <div className="pictureImg">
             <Pictures alt="pictures" src={props.image}></Pictures>
-            <p>{props.explanation}</p>
+            <Button onClick={toggle}>
+                Picture Explanation     
+            </Button>
+            <Modal isOpen={modal} toggle={toggle}>
+                <ModalBody style={{padding: "15px",
+                border: "1px solid pink",
+                background: "linear-gradient(to right, lightblue, pink)"}}>
+                    <Paragraph>{props.explanation}</Paragraph>
+                </ModalBody>
+            </Modal>
         </div>
+        <Footer>
+            &copy;2020 Charlene Johnson
+        </Footer>
     </div>
-    
     );
 };
     
