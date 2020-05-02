@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components"
 import moment from "moment"
-import {Modal, ModalBody} from "reactstrap"
+import {Modal, ModalHeader, ModalBody} from "reactstrap"
 
 
 const TitleDate = styled.div `
@@ -16,7 +16,6 @@ const Pictures = styled.img `
     padding: 20px;
     border: 1px solid pink;
     background: linear-gradient(to right, lightblue, pink);
-   
 `
 const Button = styled.button `
     padding: 1%;
@@ -57,9 +56,10 @@ const newDate = moment(props.date).format('dddd, MMMM Do YYYY')
         <div className="pictureImg">
             <Pictures alt="pictures" src={props.image}></Pictures>
             <Button onClick={toggle}>
-                Picture Explanation     
+                Click here for more info about this picture!     
             </Button>
             <Modal isOpen={modal} toggle={toggle}>
+                <ModalHeader toggle={toggle} style={{background: "linear-gradient(to right, lightblue, pink)",  fontFamily:"'Orbitron', sans-serif"}} >Explanation of: {props.title}</ModalHeader>
                 <ModalBody style={{padding: "15px",
                 border: "1px solid pink",
                 background: "linear-gradient(to right, lightblue, pink)"}}>
@@ -74,5 +74,4 @@ const newDate = moment(props.date).format('dddd, MMMM Do YYYY')
     );
 };
     
-
 export default PictureInfo;

@@ -1,5 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components"
+import Calendar from "./Calendar"
+import {Modal, ModalBody} from "reactstrap"
+import 'react-calendar/dist/Calendar.css';
 
 const Header = styled.header `
     width: 100%;
@@ -36,13 +39,13 @@ const Links = styled.a `
     color: black;
 
     &:hover {
-        color: grey;
+        color: p;
     }
 `
 
-
-
-export default function Navigation() {
+export default function Navigation(props) {
+    const [modal, setModal] = useState(false); 
+    const toggle = () => setModal(!modal);
     return (
         <Header>
             <NavContainer>
@@ -50,7 +53,16 @@ export default function Navigation() {
                 <NasaPhotos>Nasa Photos</NasaPhotos>
                 <Navs>
                     <Links href="#">Home</Links>
-                    <Links href="">Select a Date</Links>
+                    <Links onClick={toggle}>Select a Date</Links>
+                    <Modal isOpen={modal} toggle={toggle}>
+                    <ModalBody style={{padding: "15px",
+                border: "1px solid pink",
+                background: "linear-gradient(to right, lightblue, pink)"}}>
+                    <Calendar date={props.date}
+                                setDate={props.setDate}
+                    />
+                </ModalBody>  
+                    </Modal>
                 </Navs>
             </NavContainer>
         </Header>

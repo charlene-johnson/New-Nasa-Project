@@ -11,6 +11,7 @@
     "datepicker-moment": "^2.0.2",
     "moment": "^2.24.0",
     "react": "^16.13.1",
+    "react-calendar": "^3.0.1",
     "react-copyright": "0.0.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",

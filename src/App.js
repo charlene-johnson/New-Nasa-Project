@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
 import PicOfDay from "./Components/PictureOfDay";
 import Navigation from "./Components/Navigation";
@@ -10,14 +10,18 @@ const Title = styled.h2 `
 `
 
 function App() {
+  const[date, setDate] = useState(new Date()) 
+
   return (
     <div className="App">
-      <Navigation />
+      <Navigation date={date}
+                  setDate={setDate}
+      />
       <div class="container">
         <div className="title">
           <Title>Astronomy Picture of the Day</Title>
         </div>
-        <PicOfDay />
+        <PicOfDay date={date}/>
         </div>
     </div>
   );

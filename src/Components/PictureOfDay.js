@@ -1,13 +1,17 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import PictureInfo from "./PictureInfo";
+import moment from "moment"
 
-export default function PictureOfDay() {
+export default function PictureOfDay(props) {
         const[picture, setPicture] = useState([])
-
+        const{date} = props
+        let selectDate = moment(date,"ddd MMM DD YYYY HH:mm:ss Z-HHmm")
+        let formatDate= selectDate.format("YYYY-MM-DD")
+         console.log(formatDate)
         useEffect(()=> {
             axios
-                .get("https://api.nasa.gov/planetary/apod?api_key=QQpTYaQHDUvPAyVorMgxfKhQEoSQikBYt5WuFCf6")
+                .get(`https://api.nasa.gov/planetary/apod?api_key=QQpTYaQHDUvPAyVorMgxfKhQEoSQikBYt5WuFCf6&date=${formatDate}`)
                 .then(response => {
                     console.log(response.data)
                     setPicture(response.data)
@@ -15,7 +19,7 @@ export default function PictureOfDay() {
                 .catch(err => {
                     console.log(err);
                 });
-        }, [])
+        }, [formatDate])
 
         return(
             <div className="info">
