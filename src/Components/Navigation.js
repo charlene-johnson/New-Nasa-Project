@@ -68,7 +68,7 @@ export default function Navigation(props) {
                 <NasaPhotos>Nasa Photos</NasaPhotos>
                 <Navs>
                     <Links href="/">Home</Links>
-                    <Links onClick={toggle}toggle={toggle}>Select a Date</Links>
+                    <Links onClick={toggle}>Select a Date</Links>
                     <Modal isOpen={modal} toggle={toggle}>
                         <ModalBody style={{padding: "20px",
                     border: "1px solid pink",

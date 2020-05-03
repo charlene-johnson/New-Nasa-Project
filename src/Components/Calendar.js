@@ -7,7 +7,7 @@ export default function Calendars (props) {
 const{date,setDate} = props
     return(
         <div>
-            <Calendar onChange={date=> setDate(date)}
+            <Calendar onChange={date => setDate(date)}
             value={date}
             />
         </div>
