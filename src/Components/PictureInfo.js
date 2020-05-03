@@ -16,6 +16,7 @@ const Pictures = styled.img `
     padding: 20px;
     border: 1px solid pink;
     background: linear-gradient(to right, lightblue, pink);
+    width: 100%;
 `
 const Button = styled.button `
     padding: 1%;

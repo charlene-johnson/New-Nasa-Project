@@ -11,6 +11,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: linear-gradient(pink, purple);
   background-size: cover;
+  
 }
 
 code {
