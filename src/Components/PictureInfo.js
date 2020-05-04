@@ -7,24 +7,27 @@ import {Modal, ModalHeader, ModalBody} from "reactstrap"
 const TitleDate = styled.div `
     display: flex;
     justify-content: space-evenly;
-    margin-top: 5%;
+    margin-top: 2.5%;
 `
 const DatePhotoHeading = styled.h2 `
 font-family: 'Orbitron', sans-serif;
+margin-bottom: 3%;
 `
+
 const Pictures = styled.img `
     padding: 20px;
     border: 1px solid pink;
     background: linear-gradient(to right, lightblue, pink);
-    width: 100%;
+    
 `
 const Button = styled.button `
-    padding: 1%;
+    padding: 2.5%;
     margin: 2% 0;
     background: linear-gradient(to left, purple, pink);
     border: 2px solid pink;
     font-size: 1.5rem;
     font-family: 'Orbitron', sans-serif;
+    align-items: center;
 
     &:hover {
         background: linear-gradient(to right, lightblue, pink);
@@ -54,7 +57,7 @@ const newDate = moment(props.date).format('dddd, MMMM Do YYYY')
             <DatePhotoHeading>Date: {newDate}</DatePhotoHeading>
             <DatePhotoHeading>Title of Photo: {props.title}</DatePhotoHeading>
         </TitleDate>
-        <div className="pictureImg">
+        <div className="picture-img">
             <Pictures alt="pictures" src={props.image}></Pictures>
             <Button onClick={toggle}>
                 Click here for more info about this picture!     

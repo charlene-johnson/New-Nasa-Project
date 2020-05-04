@@ -8,12 +8,16 @@ const Header = styled.header `
     width: 100%;
     height: 100%;
     border-bottom: 2px solid black;
-  
 `
 
 const NavContainer = styled.div `
     display: flex;
     align-items: center;
+
+    @media(max-width: 500px) {
+        flex-direction: column;
+        align-content: center;  
+    }
 `
 
 const NasaImage = styled.img `
@@ -43,8 +47,7 @@ const Navs = styled.nav `
 
     @media(max-width: 800px) {
         margin-left: 25%
-    }
-
+    }  
    
 `
 
