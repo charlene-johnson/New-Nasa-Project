@@ -40,6 +40,7 @@ const Navs = styled.nav `
     display: flex;
     justify-content: space-evenly;
     font-family: 'Orbitron', sans-serif;
+   
 
     @media(max-width: 1024px) {
         margin-left: 40%;
@@ -54,7 +55,7 @@ const Navs = styled.nav `
 const Links = styled.a `
     text-decoration: none;
     color: black;
-
+    
     &:hover {
         color: purple;
         text-decoration: none;
