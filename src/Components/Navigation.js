@@ -88,7 +88,6 @@ export default function Navigation(props) {
         <AppBar
           position="fixed"
           style={{
-            
             borderBottom: "2px solid black",
           }}
         >
