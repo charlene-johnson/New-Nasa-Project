@@ -98,6 +98,7 @@ export default function Navigation(props) {
               value={value}
               onChange={handleChange}
               className={classes.tabContainer}
+              indicatorColor="primary"
             >
               <Tab
                 className={classes.tab}
