@@ -54,9 +54,11 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.tab,
     minWidth: 10,
     marginRight: "50px",
-  },
-  appbar: {
-    zIndex: theme.zIndex.modal + 10,
+    opacity: 1,
+    "&:hover": {
+        color: theme.palette.common.purple,
+        textDecoration: "none"
+    }
   },
 }));
 
@@ -82,6 +84,10 @@ export default function Navigation(props) {
     }
   }, [value]);
 
+  const refreshPage = () => {
+      window.location.reload(true)
+  }
+
   return (
     <React.Fragment>
       <ElevationScroll>
@@ -104,6 +110,7 @@ export default function Navigation(props) {
               <Tab
                 className={classes.tab}
                 component={Link}
+                onClick={refreshPage}
                 to="/"
                 label="Home"
               />
@@ -112,7 +119,7 @@ export default function Navigation(props) {
                 label="Select a Date"
                 onClick={toggle}
               />
-              <Modal isOpen={modal} toggle={toggle}style={{zIndex: 1500}}>
+              <Modal isOpen={modal} toggle={toggle}style={{marginTop: "10rem"}}>
                 <ModalBody
                   style={{
                     padding: "20px",
@@ -123,7 +130,7 @@ export default function Navigation(props) {
                     zIndex: 1500
                   }}
                 >
-                  <Calendar date={props.date} setDate={props.setDate}  style={{zIndex: 1500}}/>
+                  <Calendar date={props.date} setDate={props.setDate} />
                 </ModalBody>
               </Modal>
             </Tabs>
