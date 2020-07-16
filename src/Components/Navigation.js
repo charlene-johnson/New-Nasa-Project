@@ -10,9 +10,8 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 
 import Calendar from "./Calendar";
-import { Modal, ModalBody } from "reactstrap";
+import { Modal, ModalBody, ModalHeader } from "reactstrap";
 import "react-calendar/dist/Calendar.css";
-
 import { Link } from "react-router-dom";
 
 import logo from "../images/nasa-logo.png";
@@ -31,10 +30,6 @@ function ElevationScroll(props) {
 }
 
 const useStyles = makeStyles((theme) => ({
-  toolbarMargin: {
-    ...theme.mixins.toolbar,
-    marginBottom: "3em",
-  },
   logo: {
     height: "8em",
     marginLeft: "0.2em",
@@ -84,7 +79,7 @@ export default function Navigation(props) {
     <React.Fragment>
       <ElevationScroll>
         <AppBar
-          position="fixed"
+          position="relative"
           style={{
             borderBottom: "2px solid black",
           }}
@@ -117,6 +112,12 @@ export default function Navigation(props) {
                 toggle={toggle}
                 style={{ marginTop: "10rem" }}
               >
+                <ModalHeader
+                  toggle={toggle}
+                  style={{
+                    background: "linear-gradient(to right, lightBlue, pink",
+                  }}
+                ></ModalHeader>
                 <ModalBody
                   style={{
                     padding: "20px",
@@ -124,7 +125,6 @@ export default function Navigation(props) {
                     background: "linear-gradient(to right, lightblue, pink)",
                     display: "flex",
                     justifyContent: "center",
-                    zIndex: 1500,
                   }}
                 >
                   <Calendar date={props.date} setDate={props.setDate} />
@@ -134,7 +134,6 @@ export default function Navigation(props) {
           </Toolbar>
         </AppBar>
       </ElevationScroll>
-      <div className={classes.toolbarMargin} />
     </React.Fragment>
   );
 }

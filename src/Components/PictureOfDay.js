@@ -29,6 +29,7 @@ export default function PictureOfDay(props) {
         date={picture.date}
         title={picture.title}
         image={picture.url}
+        media={picture.media_type}
         explanation={picture.explanation}
       />
     </div>

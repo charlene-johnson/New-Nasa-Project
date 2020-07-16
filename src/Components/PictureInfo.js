@@ -62,7 +62,17 @@ const PictureInfo = (props) => {
       </Grid>
       <Grid container direction="column" justify="center" alignItems="center">
         <Grid item className={classes.formGridItem}>
-          <img className={classes.image} alt="pictures" src={props.image}></img>
+          {props.media === "video" ? (
+            <iframe
+              className={classes.image}
+              title="video"
+              src={props.image}
+              width="800px"
+              height="600px"
+            ></iframe>
+          ) : (
+            <img className={classes.image} alt="nasa" src={props.image} />
+          )}
         </Grid>
         <Grid item className={classes.formGridItem} align="center">
           <Button
@@ -70,7 +80,7 @@ const PictureInfo = (props) => {
             variant="contained"
             onClick={toggle}
           >
-            Click here for more info about this picture!
+            Click here for more information!
           </Button>
         </Grid>
         <Modal isOpen={modal} toggle={toggle} style={{ marginTop: "10rem" }}>
