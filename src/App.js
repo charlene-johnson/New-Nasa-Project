@@ -1,29 +1,27 @@
-import React, {useState} from "react";
-import "./App.css";
+import React, { useState } from "react";
 import PicOfDay from "./Components/PictureOfDay";
 import Navigation from "./Components/Navigation";
-import styled from "styled-components"
-
-const Title = styled.h2 `
-  font-size: 5rem;
-  font-family: 'Orbitron', sans-serif;
-`
+import { ThemeProvider } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core";
+import theme from "../src/ui/Theme";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
-  const[date, setDate] = useState(new Date()) 
+  const [date, setDate] = useState(new Date());
 
   return (
-    <div className="App">
-      <Navigation date={date}
-                  setDate={setDate}
-      />
-      <div class="container">
-        <div className="title">
-          <Title>Astronomy Picture of the Day</Title>
-        </div>
-        <PicOfDay date={date}/>
-        </div>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Navigation date={date} setDate={setDate} />
+        <Typography
+          variant="h1"
+          style={{ fontSize: "5rem", textAlign: "center", marginTop:"2rem" }}
+        >
+          Astronomy Picture of the Day
+        </Typography>
+        <PicOfDay date={date} />
+      </Router>
+    </ThemeProvider>
   );
 }
 
