@@ -5,7 +5,7 @@ import Navigation from "./Components/Navigation";
 import {ThemeProvider} from '@material-ui/core/styles';
 import {Typography} from '@material-ui/core'
 import theme from '../src/ui/Theme';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router} from 'react-router-dom'
 
 // const Title = styled.h2 `
 //   font-size: 5rem;

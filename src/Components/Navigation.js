@@ -5,19 +5,17 @@ import {
   useScrollTrigger,
   Tabs,
   Tab,
-  Button,
   Typography,
 } from "@material-ui/core";
-
 import { makeStyles } from "@material-ui/core/styles";
+
 import Calendar from "./Calendar";
 import { Modal, ModalBody } from "reactstrap";
 import "react-calendar/dist/Calendar.css";
+
 import { Link } from "react-router-dom";
-import theme from "../ui/Theme";
 
 import logo from "../images/nasa-logo.png";
-
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -41,12 +39,6 @@ const useStyles = makeStyles((theme) => ({
     height: "8em",
     marginLeft: "0.2em",
   },
-  logoContainer: {
-    padding: 0,
-    "&:hover": {
-      backgroundColor: "transparent",
-    },
-  },
   tabContainer: {
     marginLeft: "auto",
   },
@@ -56,22 +48,26 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "50px",
     opacity: 1,
     "&:hover": {
-        color: theme.palette.common.purple,
-        textDecoration: "none"
-    }
+      color: theme.palette.common.purple,
+      textDecoration: "none",
+    },
   },
 }));
 
 export default function Navigation(props) {
-  const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
   const classes = useStyles();
 
+  const [modal, setModal] = useState(false);
   const [value, setValue] = useState(0);
 
+  const toggle = () => setModal(!modal);
   const handleChange = (e, value) => {
     setValue(value);
   };
+  const refreshPage = () => {
+    window.location.reload(true);
+  };
+
   useEffect(() => {
     switch (window.location.pathname) {
       case "/":
@@ -83,10 +79,6 @@ export default function Navigation(props) {
         break;
     }
   }, [value]);
-
-  const refreshPage = () => {
-      window.location.reload(true)
-  }
 
   return (
     <React.Fragment>
@@ -119,7 +111,11 @@ export default function Navigation(props) {
                 label="Select a Date"
                 onClick={toggle}
               />
-              <Modal isOpen={modal} toggle={toggle}style={{marginTop: "10rem"}}>
+              <Modal
+                isOpen={modal}
+                toggle={toggle}
+                style={{ marginTop: "10rem" }}
+              >
                 <ModalBody
                   style={{
                     padding: "20px",
@@ -127,7 +123,7 @@ export default function Navigation(props) {
                     background: "linear-gradient(to right, lightblue, pink)",
                     display: "flex",
                     justifyContent: "center",
-                    zIndex: 1500
+                    zIndex: 1500,
                   }}
                 >
                   <Calendar date={props.date} setDate={props.setDate} />
