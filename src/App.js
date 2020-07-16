@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 import PicOfDay from "./Components/PictureOfDay";
 import Navigation from "./Components/Navigation";
 import { ThemeProvider } from "@material-ui/core/styles";
